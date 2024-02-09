@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          if [ "$AUTHOR" == "MEMBER" ] && [ "$COMMENTS" == "0" ]; then
+          if [ "$AUTHOR" == "MEMBER" ] && (( $COMMENTS == 0 )); then
             echo "Issue opened by member with no comments, skipping user survey."
           else
             gh issue comment "$NUMBER" --body "$BODY"
