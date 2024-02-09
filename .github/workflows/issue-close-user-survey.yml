@@ -10,7 +10,7 @@ jobs:
       issues: write
     runs-on: ubuntu-latest
     steps:
-      - run:
+      - run: |
           if [ "$AUTHOR" == "MEMBER" ] && [ "$COMMENTS" == 0 ]; then
             echo "Issue opened by member with no comments, skipping user survey."
           else
