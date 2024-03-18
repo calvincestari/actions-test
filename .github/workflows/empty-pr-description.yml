@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          if ! [[ -z "${param// }" ]] || [ "$DRAFT" = true ]; then
+          if ! [[ -z "${$BODY// }" ]] || [ "$DRAFT" = true ]; then
             echo "PR is draft or description has length, skipping comment."
           else
             gh pr comment "$NUMBER" --body "$MESSAGE"
