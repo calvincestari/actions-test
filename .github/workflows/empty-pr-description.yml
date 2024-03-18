@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          if [ ${$BODY} > 0 ] ; then
+          if [ ${"$BODY"} > 0 ] ; then
             echo "PR description has length, skipping comment."
           else
             gh pr comment "$NUMBER" --body "$MESSAGE"
