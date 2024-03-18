@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          if [ "$BODY" == '' ] ; then
-            gh pull_request comment "$NUMBER" --body "$MESSAGE"
+          if [ ${$BODY} > 0 ] ; then
+            echo "PR description has length, skipping comment."
+          else
+            gh pr comment "$NUMBER" --body "$MESSAGE"
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
